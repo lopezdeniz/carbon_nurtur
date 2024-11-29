@@ -1,24 +1,40 @@
-const path = require('path'); // Модуль для работы с путями в файловой системе
+const path = require('path');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
-    mode: 'development', // Устанавливаем режим разработки ('production' для финальной сборки)
-    entry: './src/assets/js/main.js', // Главный файл JavaScript, с которого начинается сборка
+    mode: 'development', // Используйте 'production' для финальной сборки
+    entry: './src/assets/js/main.js', // Главный файл
     output: {
-        path: path.resolve(__dirname, 'build'), // Путь для итоговых файлов
-        filename: 'bundle.js', // Имя собранного файла JavaScript
+        path: path.resolve(__dirname, 'build'), // Папка для итоговых файлов
+        filename: 'bundle.js', // Имя собранного файла
+        clean: true, // Очищает папку build перед каждой сборкой
     },
     module: {
         rules: [
             {
-                test: /\.css$/, // Указывает, как обрабатывать файлы .css
-                use: ['style-loader', 'css-loader'], // Подключает style-loader и css-loader
+                test: /\.css$/,
+                use: ['style-loader', 'css-loader'],
+            },
+            {
+                test: /\.(png|jpg|jpeg|gif|svg)$/,
+                type: 'asset/resource',
+            },
+            {
+                test: /\.(woff|woff2|eot|ttf|otf)$/,
+                type: 'asset/resource',
             },
         ],
     },
-    devtool: 'source-map', // Генерация source maps для отладки
+    plugins: [
+        new HtmlWebpackPlugin({
+            template: './public/index.html', // Используем HTML из папки public
+        }),
+    ],
+    devtool: 'source-map',
     devServer: {
-        static: path.resolve(__dirname, 'public'), // Папка, откуда сервер будет раздавать файлы
-        compress: true, // Включает сжатие для ускорения загрузки
-        port: 8080, // Порт, на котором будет запущен сервер
+        static: path.resolve(__dirname, 'public'),
+        compress: true,
+        port: 8080,
+        open: true, // Автоматически открывает браузер
     },
 };
