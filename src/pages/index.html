@@ -6,7 +6,41 @@
     <title>Carbon Nurture</title>
 </head>
 <body>
-    <h1>Hello, Carbon Nurture!</h1>
-   
+    <header>
+        <h1>Welcome to Carbon Nurture!</h1>
+    </header>
+    
+    <main>
+        <section>
+            <h2>About Us</h2>
+            <p>Carbon Nurture is dedicated to providing sustainable solutions through biodegradable plastics.</p>
+        </section>
+        
+        <section id="form">
+            <!-- Сюда будет загружена форма -->
+        </section>
+    </main>
+    
+    <footer>
+        <p>&copy; 2024 Carbon Nurture. All rights reserved.</p>
+    </footer>
+
+    <script>
+        // Асинхронная функция для загрузки формы
+        async function loadForm() {
+            try {
+                const response = await fetch('/components/form.html'); // Загружаем файл формы
+                if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
+                const formHTML = await response.text(); // Конвертируем в текст
+                document.getElementById('form').innerHTML = formHTML; // Вставляем в контейнер
+            } catch (error) {
+                console.error('Error loading form:', error);
+                document.getElementById('form').innerHTML = '<p>Failed to load form. Please try again later.</p>';
+            }
+        }
+
+        // Вызов функции загрузки формы
+        loadForm();
+    </script>
 </body>
 </html>
