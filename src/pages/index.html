@@ -44,57 +44,9 @@
         <!-- Контейнер для футера -->
         <div id="footer-container"></div>
     
-        <!-- Скрипт для загрузки шапки -->
-        <script>
-            async function loadHeader() {
-                try {
-                    const response = await fetch('/components/Header.html'); // Путь к шапке в build
-                    if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
-                    const headerHTML = await response.text();
-                    document.getElementById('header-container').innerHTML = headerHTML;
-                } catch (error) {
-                    console.error('Error loading header:', error);
-                    document.getElementById('header-container').innerHTML = '<p>Failed to load header. Please try again later.</p>';
-                }
-            }
-            loadHeader();
-        </script>
+     
     
-        <!-- Скрипт для загрузки формы -->
-        <script>
-            async function loadForm() {
-                try {
-                    const response = await fetch('/components/form.html'); // Путь к форме в build
-                    if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
-                    const formHTML = await response.text();
-                    document.getElementById('form').innerHTML = formHTML;
-                } catch (error) {
-                    console.error('Error loading form:', error);
-                    document.getElementById('form').innerHTML = '<p>Failed to load form. Please try again later.</p>';
-                }
-            }
-            loadForm();
-        </script>
-    
-        <!-- Скрипт для загрузки футера -->
-        <script>
-            async function loadFooter() {
-                try {
-                    const response = await fetch('/components/Footer.html'); // Путь к футеру в build
-                    if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
-                    const footerHTML = await response.text();
-                    document.getElementById('footer-container').innerHTML = footerHTML;
-                } catch (error) {
-                    console.error('Error loading footer:', error);
-                    document.getElementById('footer-container').innerHTML = '<p>Failed to load footer. Please try again later.</p>';
-                }
-            }
-            loadFooter();
-        </script>
-    </body>
-    </html>
-    
-    <!-- Скрипт для загрузки шапки -->
+         <!-- Скрипт для загрузки шапки -->
     <script>
         async function loadHeader() {
             try {
@@ -109,7 +61,7 @@
         }
         loadHeader();
     </script>
-
+    
     <!-- Скрипт для загрузки формы -->
     <script>
         async function loadForm() {
@@ -125,5 +77,22 @@
         }
         loadForm();
     </script>
+
+   <!-- Скрипт для загрузки футера -->
+   <script>
+    async function loadFooter() {
+        try {
+            const response = await fetch('/components/Footer.html'); // Путь к футеру в build
+            if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
+            const footerHTML = await response.text();
+            document.getElementById('footer-container').innerHTML = footerHTML;
+        } catch (error) {
+            console.error('Error loading footer:', error);
+            document.getElementById('footer-container').innerHTML = '<p>Failed to load footer. Please try again later.</p>';
+        }
+    }
+    loadFooter();
+</script>
+
 </body>
 </html>
