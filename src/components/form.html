@@ -1,16 +1,26 @@
-<section id="contact-form">
-    <h2>Contact Us</h2>
-    <form id="contactForm" action="" method="POST">
-      <label for="name">Name:</label>
-      <input type="text" id="name" name="name" placeholder="Your name" required />
-  
-      <label for="email">Email:</label>
-      <input type="email" id="email" name="email" placeholder="Your email" required />
-  
-      <label for="message">Message:</label>
-      <textarea id="message" name="message" placeholder="Your message" required></textarea>
-  
-      <button type="submit">Send</button>
-    </form>
-  </section>
+<section id="contact-form" class="container py-5">
+  <h2 class="text-center mb-4">Contact Us</h2>
+  <form id="contactForm" action="/send_email.php" method="POST" class="mx-auto" style="max-width: 600px;">
+      <!-- Name -->
+      <div class="mb-3">
+          <label for="name" class="form-label">Name:</label>
+          <input type="text" id="name" name="name" class="form-control" placeholder="Your name" required>
+      </div>
+      <!-- Email -->
+      <div class="mb-3">
+          <label for="email" class="form-label">Email:</label>
+          <input type="email" id="email" name="email" class="form-control" placeholder="Your email" required>
+      </div>
+      <!-- Message -->
+      <div class="mb-3">
+          <label for="message" class="form-label">Message:</label>
+          <textarea id="message" name="message" class="form-control" rows="5" placeholder="Your message" required></textarea>
+      </div>
+      <!-- Submit Button -->
+      <div class="text-center">
+          <button type="submit" class="btn btn-primary px-4">Send</button>
+      </div>
+  </form>
+</section>
+
   
