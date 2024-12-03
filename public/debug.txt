@@ -1,1 +1,1 @@
-{"name":"aaa","email":"aaa@mmm.com","message":"sss"}
+{"name":"aaaa","email":"aaaa@mail.ru","message":"проверка с футером"}

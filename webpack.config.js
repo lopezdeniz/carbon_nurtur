@@ -33,6 +33,10 @@ module.exports = {
                     from: path.resolve(__dirname, 'src/components'), // Исходная папка с компонентами
                     to: path.resolve(__dirname, 'build/components'), // Целевая папка для копирования
                 },
+                {
+                    from: path.resolve(__dirname, 'src/assets'), // Исходная папка с ассетами
+                    to: path.resolve(__dirname, 'build/assets'), // Целевая папка для копирования ассетов
+                },
             ],
         }),
     ],
